@@ -8,6 +8,7 @@
           :class="[ui.base, ui.padding, ui.width, ui.ring, ui.rounded, ui.font, ui.size]"
           :active-class="ui.active"
           :inactive-class="ui.inactive"
+          :external="link.external"
           @click="link.click"
           @keyup.enter="$event.target.blur()"
         >
