@@ -11,40 +11,51 @@
           @click="link.click"
           @keyup.enter="$event.target.blur()"
         >
-          <slot name="avatar" :link="link" :is-active="isActive">
-            <UAvatar
-              v-if="link.avatar"
-              v-bind="{ size: ui.avatar.size, ...link.avatar }"
-              :class="[ui.avatar.base]"
-            />
-          </slot>
-          <slot name="icon" :link="link" :is-active="isActive">
-            <UIcon
-              v-if="link.icon"
-              :name="link.icon"
-              :class="twMerge(twJoin(ui.icon.base, isActive ? ui.icon.active : ui.icon.inactive), link.iconClass)"
-            />
-          </slot>
-          <slot :link="link" :is-active="isActive">
-            <span v-if="link.label" :class="twMerge(ui.label, link.labelClass)">
-              <span v-if="isActive" class="sr-only">
-                Current page:
+          <span :class="ui.segment">
+            <slot name="avatar" :link="link" :is-active="isActive">
+              <UAvatar
+                v-if="link.avatar"
+                v-bind="{ size: ui.avatar.size, ...link.avatar }"
+                :class="[ui.avatar.base]"
+              />
+            </slot>
+            <slot name="icon" :link="link" :is-active="isActive">
+              <UIcon
+                v-if="link.icon"
+                :name="link.icon"
+                :class="twMerge(twJoin(ui.icon.base, isActive ? ui.icon.active : ui.icon.inactive), link.iconClass)"
+              />
+            </slot>
+            <slot :link="link" :is-active="isActive">
+              <span v-if="link.label" :class="twMerge(ui.label, link.labelClass)">
+                <span v-if="isActive" class="sr-only">
+                  Current page:
+                </span>
+                {{ link.label }}
               </span>
-              {{ link.label }}
-            </span>
-          </slot>
-          <slot name="badge" :link="link" :is-active="isActive">
-            <UBadge
-              v-if="link.badge"
-              v-bind="{
-                size: ui.badge.size,
-                color: ui.badge.color,
-                variant: ui.badge.variant,
-                ...((typeof link.badge === 'string' || typeof link.badge === 'number') ? { label: link.badge } : link.badge)
-              }"
-              :class="ui.badge.base"
-            />
-          </slot>
+            </slot>
+            <slot name="badge" :link="link" :is-active="isActive">
+              <UBadge
+                v-if="link.badge"
+                v-bind="{
+                  size: ui.badge.size,
+                  color: ui.badge.color,
+                  variant: ui.badge.variant,
+                  ...((typeof link.badge === 'string' || typeof link.badge === 'number') ? { label: link.badge } : link.badge)
+                }"
+                :class="ui.badge.base"
+              />
+            </slot>
+          </span>
+          <span :class="ui.segment">
+            <slot name="trailing-icon" :link="link" :is-active="isActive">
+              <UIcon
+                v-if="link.trailingIcon || link.external"
+                :name="link.external ? 'material-symbols:open-in-new-sharp' : link.trailingIcon"
+                :class="twMerge(twJoin(ui.icon.base, isActive ? ui.icon.active : ui.icon.inactive), link.trailingIconClass)"
+              />
+            </slot>
+          </span>
         </ULink>
       </li>
       <UDivider v-if="sectionIndex < sections.length - 1" :ui="ui.divider" />

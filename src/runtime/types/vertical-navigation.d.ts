@@ -10,4 +10,6 @@ export interface VerticalNavigationLink extends Link {
   avatar?: Avatar
   click?: (...args: any[]) => void
   badge?: string | number | Badge
+  trailingIcon?: string
+  trailingIconClass?: string
 }
