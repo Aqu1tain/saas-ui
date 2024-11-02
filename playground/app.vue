@@ -6,7 +6,7 @@
       </template>
 
       <p class="text-gray-500 dark:text-gray-400">
-        Try your components here!
+        <UInput type="file" accept="image/*" />
       </p>
     </UCard>
   </UContainer>
