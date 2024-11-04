@@ -6,14 +6,14 @@
       </template>
 
       <p class="text-gray-500 dark:text-gray-400">
-        <UInput type="file" accept="image/*" />
+        <playground-comp />
       </p>
     </UCard>
   </UContainer>
 </template>
 
 <script setup>
-
+import PlaygroundComp from "~/playgroundComp.vue";
 </script>
 
 <style>
