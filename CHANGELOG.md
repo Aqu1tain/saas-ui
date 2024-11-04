@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.19.1](https://github.com/nuxt/ui/compare/v2.19.0...v2.19.1) (2024-11-04)
+
 ## [2.19.0](https://github.com/nuxt/ui/compare/v2.18.7...v2.19.0) (2024-11-04)
 
 ## [2.18.7](https://github.com/nuxt/ui/compare/v2.18.6...v2.18.7) (2024-10-09)
